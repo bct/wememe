@@ -8,5 +8,7 @@ gem "compass"
 gem "dm-core"
 gem "dm-timestamps"
 
+gem "bcrypt-ruby"
+
 #group :development, :test do
 #end
