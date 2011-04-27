@@ -1,0 +1,65 @@
+%html
+  %head
+    %title Rememe Style Examples
+    %link{:rel => 'stylesheet', :href => '/stylesheets/screen.css' }
+  %body
+    #container
+      #header
+        %h1 Rememe
+
+        #sign-in
+          Sign in with:
+
+          %br
+
+          %a#username{:href => '#'} Username
+
+      .content
+        %p
+          This is an explanation of how the site works. Even though I'm not sure how it works yet.
+
+        #pool
+          %h2 Mobile Pool
+
+          .entry
+            %span.emit
+              %a{:href => '#'} emit
+
+            %a.title{:href => '#'} Inspired Use Of QR Code On CV
+
+            by
+
+            %span.user
+              %img{:src => 'http://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=20', :alt => ''}
+              somebody
+
+            %span.when 12 days ago
+
+            .others
+              also by:
+
+              %ul
+                %li
+                  %span.user
+                    %img{:src => 'https://secure.gravatar.com/avatar/6948ecc2a8eec5fede87bb12229b32d0?s=20', :alt => ''}
+                    bct
+
+                  as "Clever QR Code Résumé"
+
+                  %span.when 1 hour ago
+
+          .entry
+            %span.emit
+              %a{:href => '#'} emit
+
+            %a.title{:href => '#'} Rooting the Galaxy S
+            by
+
+            %span.user
+              %img{:src => 'https://secure.gravatar.com/avatar/6948ecc2a8eec5fede87bb12229b32d0?s=20', :alt => ''}
+              bct
+
+            %span.when 1 year ago
+
+        #footer
+          AGPL etc.

@@ -1,0 +1,73 @@
+@import "blueprint/reset";
+@import "blueprint/grid";
+@import "blueprint/typography";
+@import "compass/layout/grid-background";
+@import "compass/typography/vertical_rhythm";
+@import "compass/typography/lists/bullets";
+@import "blueprint/buttons";
+
+$blueprint-font-size: 16px;
+$small-font-size:     $blueprint-font-size * 0.8;
+
+$accent-colour: #cdc;
+
+@include blueprint-typography;
+
+#container {
+  @include container;
+  @include establish-baseline;
+}
+
+#header {
+  @include padding-leader(1);
+  @include clearfix;
+  background: $accent-colour;
+
+  h1 {
+    @include column(18);
+  }
+
+  #sign-in {
+    @include column(6, true);
+
+    @include adjust-font-size-to($small-font-size);
+
+    #username {
+      @include button-button;
+    }
+  }
+}
+
+.content {
+//  @include grid-background;
+  @include column(24);
+  @include leader(1);
+}
+
+span.user img {
+  vertical-align: top;
+}
+
+.entry {
+  @include prepend(1);
+
+  .emit {
+    @include column(1);
+    @include adjust-font-size-to($small-font-size);
+    text-align: right;
+  }
+
+  .others {
+    @include prepend(1);
+
+    ul {
+      @include prepend(0.5);
+      @include no-bullets;
+    }
+  }
+}
+
+#footer {
+  @include leader(1);
+  @include adjust-font-size-to($small-font-size);
+}
