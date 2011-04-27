@@ -7,6 +7,7 @@ gem "compass"
 
 gem "dm-core"
 gem "dm-timestamps"
+gem "dm-sqlite-adapter"
 
 gem "bcrypt-ruby"
 
