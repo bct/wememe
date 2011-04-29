@@ -32,7 +32,7 @@ $accent-colour: #cdc;
 
     @include adjust-font-size-to($small-font-size);
 
-    #username {
+    #username-login {
       @include button-button;
     }
   }
@@ -64,6 +64,40 @@ span.user img {
       @include prepend(0.5);
       @include no-bullets;
     }
+  }
+}
+
+#login-form, #signup-form {
+  @include push(2);
+  @include leader(1);
+  @include trailer(1);
+  @include padding-leader(1);
+  @include padding-trailer(1);
+  @include column(9);
+
+  h2 {
+    text-align: center;
+  }
+
+  .form-item {
+    @include trailer(1);
+  }
+
+  label {
+    @include column(4);
+    text-align: right;
+  }
+
+  input {
+    @include column(4, true);
+  }
+
+  input[type='submit'] {
+    @include push(4);
+  }
+
+  .form-item {
+    @include clearfix;
   }
 }
 

@@ -1,0 +1,21 @@
+%html
+  %head
+    %title Rememe Style Examples
+    %link{:rel => 'stylesheet', :href => url('/stylesheets/screen.css') }
+  %body
+    #container
+      #header
+        %h1 Rememe
+
+        #sign-in
+          Sign in with:
+
+          %br
+
+          %a#username-login{:href => url('/login')} Username
+
+      .content
+        = yield
+
+      #footer
+        AGPL etc.

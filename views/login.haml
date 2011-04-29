@@ -1,0 +1,33 @@
+#login-form
+  %h2 Log In
+
+  %form{:action => url('/login')}
+    .form-item
+      %label{:for => 'username'} Username:
+      %input{:name => 'username', :id => 'username'}
+
+    .form-item
+      %label{:for => 'password'} Password:
+      %input{:name => 'password', :id => 'password', :type => 'password'}
+
+    .form-item
+      %input{:type => 'submit', :value => 'Log in'}
+
+#signup-form
+  %h2 Sign Up
+
+  %form{:action => url('/accounts')}
+    .form-item
+      %label{:for => 'username'} Username:
+      %input{:name => 'username', :id => 'username'}
+
+    .form-item
+      %label{:for => 'password'} Password:
+      %input{:name => 'password', :id => 'password', :type => 'password'}
+
+    .form-item
+      %label{:for => 'password'} Again:
+      %input{:name => 'password-again', :id => 'password-again', :type => 'password'}
+
+    .form-item
+      %input{:type => 'submit', :value => 'Sign up'}
