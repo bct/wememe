@@ -10,8 +10,9 @@ gem "compass"
 gem "dm-core"
 gem "dm-timestamps"
 gem "dm-sqlite-adapter"
+gem "dm-migrations"
 
-gem "bcrypt-ruby"
+gem "bcrypt-ruby", :require => "bcrypt"
 
 #group :development, :test do
 #end

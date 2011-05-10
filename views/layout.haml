@@ -7,12 +7,17 @@
       #header
         %h1 Rememe
 
-        #sign-in
-          Sign in with:
+        - if signed_in?
+          #current-user
+            Hello,
+            = current_user.username
+        - else
+          #sign-in
+            Sign in with:
 
-          %br
+            %br
 
-          %a#username-login{:href => url('/login')} Username
+            %a#username-login{:href => url('/login')} Username
 
       .content
         = yield
