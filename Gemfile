@@ -14,5 +14,7 @@ gem "dm-migrations"
 
 gem "bcrypt-ruby", :require => "bcrypt"
 
-#group :development, :test do
-#end
+group :development, :test do
+  gem 'rspec'
+  gem 'rack-test'
+end

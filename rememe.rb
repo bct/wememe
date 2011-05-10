@@ -31,6 +31,10 @@ class Rememe < Sinatra::Base
     set :db, "sqlite3:///#{Dir.pwd}/db/wememe.db"
   end
 
+  configure :test do
+    set :db, 'sqlite3::memory:'
+  end
+
   get '/' do
     haml :index
   end
