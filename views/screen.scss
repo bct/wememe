@@ -38,7 +38,7 @@ $accent-colour: #cdc;
   }
 }
 
-.content {
+#content {
 //  @include grid-background;
   @include column(24);
   @include leader(1);

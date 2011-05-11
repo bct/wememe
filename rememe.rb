@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 require 'bundler'
 Bundler.require
 
@@ -13,8 +15,12 @@ class Rememe < Sinatra::Base
     end
 
     def sign_in user
-      # TODO: this has to be tamper-proof
+      # TODO: this has to be tamper-proofed
       session[:user] = user.id
+    end
+
+    def logout
+      session[:user] = nil
     end
 
     def current_user
@@ -22,7 +28,6 @@ class Rememe < Sinatra::Base
     end
 
     def load_user_from_session
-      p session
       User.get(session[:user])
     end
   end
@@ -45,7 +50,17 @@ class Rememe < Sinatra::Base
 
   post '/login' do
     @u = User.first(:username => params[:username])
-    sign_in(@u)
+    if @u and @u.password == params[:password]
+      sign_in(@u)
+      redirect url('/')
+    else
+      flash[:error] = "Bad username or password."
+      redirect url('/login')
+    end
+  end
+
+  get '/logout' do
+    logout
     redirect url('/')
   end
 

@@ -11,6 +11,9 @@
           #current-user
             Hello,
             = current_user.username
+
+          %a#logout{:href => url('/logout')} Log Out
+
         - else
           #sign-in
             Sign in with:
@@ -19,7 +22,15 @@
 
             %a#username-login{:href => url('/login')} Username
 
-      .content
+      - if flash
+        #messaging
+          - if flash[:error]
+            .error= flash[:error]
+
+          - if flash[:notice]
+            .notice= flash[:notice]
+
+      #content
         = yield
 
       #footer
