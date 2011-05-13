@@ -4,6 +4,12 @@
 #pool
   %h2 Mobile Pool
 
+  %form.new-entry
+    New entry:
+    %input{:placeholder => 'URL'}
+    %input{:placeholder => 'Title'}
+    %input{:type => 'submit'}
+
   .entry
     %span.emit
       %a{:href => '#'} emit
