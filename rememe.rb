@@ -3,6 +3,8 @@
 require 'bundler'
 Bundler.require
 
+require 'json'
+
 require_relative 'models'
 
 class Rememe < Sinatra::Base
@@ -76,6 +78,18 @@ class Rememe < Sinatra::Base
     else
       flash[:error] = "Passwords do not match."
       haml :login
+    end
+  end
+
+  post %r{/linkings(\.json)?} do |format|
+    @u = Url.first_or_create(:url => params[:url])
+    @l = Linking.create :url => @u, :summary => params[:summary], :creator => current_user
+
+    if format == ".json"
+      @l.to_json
+    else
+      # TODO: where should this redirect to?
+      redirect url("/users/#{current_user.username}")
     end
   end
 

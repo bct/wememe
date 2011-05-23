@@ -1,6 +1,3 @@
-require 'dm-core'
-require 'dm-timestamps'
-
 class User
   include DataMapper::Resource
 
@@ -35,8 +32,9 @@ class Linking
   property :summary,    String,   :required => true
   property :created_at, DateTime, :required => true
 
-  belongs_to :url
-  belongs_to :creater, User
+  belongs_to :url,                :required => true
+  belongs_to :creator, User,      :required => true
+
   has n, :pools, :through => Resource
 end
 
