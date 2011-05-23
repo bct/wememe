@@ -39,6 +39,7 @@ class Rememe < Sinatra::Base
   end
 
   configure do
+    set :haml, :escape_html => true
     set :db, "sqlite3:///#{Dir.pwd}/db/wememe.db"
   end
 
