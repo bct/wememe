@@ -14,6 +14,9 @@ gem "dm-migrations"
 
 gem "bcrypt-ruby", :require => "bcrypt"
 
+# extra methods for Time (e.g. ago_in_words)
+gem "time-lord"
+
 group :development, :test do
   gem 'rspec'
   gem 'rack-test'
