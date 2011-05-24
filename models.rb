@@ -6,6 +6,8 @@ class User
 
   property :password_hash, String, :required => true
 
+  has n, :linkings, :child_key => [ :creator_id ]
+
   def password
     @password ||= BCrypt::Password.new(password_hash)
   end
@@ -30,7 +32,7 @@ class Linking
 
   property :id,         Serial
   property :summary,    String,   :required => true
-  property :created_at, DateTime, :required => true
+  property :created_at, Time,     :required => true
 
   belongs_to :url,                :required => true
   belongs_to :creator, User,      :required => true

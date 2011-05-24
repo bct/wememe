@@ -89,7 +89,7 @@ class Rememe < Sinatra::Base
     if format == ".json"
       @l.to_json
     else
-      # TODO: where should this redirect to?
+      flash[:notice] = "Posted new link."
       redirect url("/users/#{current_user.username}")
     end
   end
@@ -101,6 +101,11 @@ class Rememe < Sinatra::Base
   get '/stylesheets/screen.css' do
     content_type 'text/css', :charset => 'utf-8'
     scss :screen, Compass.sass_engine_options
+  end
+
+  get '/users/:username' do
+    @user = User.first(:username => params[:username])
+    haml :user
   end
 end
 
