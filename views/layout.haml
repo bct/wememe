@@ -1,16 +1,17 @@
 %html
   %head
-    %title Rememe Style Examples
+    %title WeMeme: Humane Link Propagation
     %link{:rel => 'stylesheet', :href => url('/stylesheets/screen.css') }
   %body
     #container
-      %header#header
-        %h1 Rememe
+      %header
+        %h1
+          %a{:href => url('/')} WeMeme
 
         - if signed_in?
           #current-user
             Hello,
-            = current_user.username
+            != haml :inline_user, :locals => { :user => current_user }
 
           %a#logout{:href => url('/logout')} Log Out
 
@@ -33,5 +34,5 @@
       %section#content
         != yield
 
-      %footer#footer
+      %footer
         AGPL etc.

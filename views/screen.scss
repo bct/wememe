@@ -73,7 +73,7 @@ $button-active-colour-2: #7db72f;
   @include establish-baseline;
 }
 
-#header {
+header {
   @include padding-leader(1);
   @include clearfix;
   background: $accent-colour;
@@ -81,6 +81,9 @@ $button-active-colour-2: #7db72f;
 
   h1 {
     @include column(18);
+    font-weight: bold;
+
+    a { text-decoration: none; }
   }
 
   #sign-in {
@@ -170,7 +173,7 @@ span.user img {
   }
 }
 
-#footer {
+footer {
   @include leader(1);
   @include adjust-font-size-to($small-font-size);
 }

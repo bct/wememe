@@ -1,5 +1,5 @@
-#login-form
-  %h2 Log In
+%section#login-form
+  %h1 Log In
 
   %form{:action => url('/login'), :method => 'post'}
     .form-item
@@ -13,8 +13,8 @@
     .form-item
       %input{:type => 'submit', :value => 'Log in'}
 
-#signup-form
-  %h2 Sign Up
+%section#signup-form
+  %h1 Sign Up
 
   %form{:action => url('/accounts'), :method => 'post'}
     .form-item
