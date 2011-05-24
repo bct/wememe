@@ -16,6 +16,11 @@ class User
     @password = BCrypt::Password.create(new_password)
     self.password_hash = @password
   end
+
+  def gravatar_url options
+    params = "?s=#{options[:size]}" if options[:size]
+    "http://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50#{params}"
+  end
 end
 
 class Url
@@ -38,6 +43,10 @@ class Linking
   belongs_to :creator, User,      :required => true
 
   has n, :pools, :through => Resource
+
+  def other_linkings
+    url.linkings.all(:id.not => id)
+  end
 end
 
 class Pool

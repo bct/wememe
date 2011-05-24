@@ -1,0 +1,25 @@
+- linkings.each do |l|
+  .entry
+    %span.emit
+      %a{:href => '#'} emit
+
+    %a.title{:href => l.url.url}= l.summary
+
+    by
+
+    != haml :inline_user, :locals => { :user => l.creator }
+
+    %span.when= l.created_at.ago_in_words
+
+    - unless l.other_linkings.empty?
+      .others
+        also by:
+
+        %ul
+          - l.other_linkings.each do |ol|
+            %li
+              != haml :inline_user, :locals => { :user => ol.creator }
+
+              as "#{ol.summary}"
+
+              %span.when= ol.created_at.ago_in_words

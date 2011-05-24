@@ -48,6 +48,7 @@ class Rememe < Sinatra::Base
   end
 
   get '/' do
+    @linkings = Linking.all
     haml :index
   end
 

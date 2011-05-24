@@ -4,7 +4,7 @@
     %link{:rel => 'stylesheet', :href => url('/stylesheets/screen.css') }
   %body
     #container
-      #header
+      %header#header
         %h1 Rememe
 
         - if signed_in?
@@ -30,8 +30,8 @@
           - if flash[:notice]
             .notice= flash[:notice]
 
-      #content
+      %section#content
         != yield
 
-      #footer
+      %footer#footer
         AGPL etc.

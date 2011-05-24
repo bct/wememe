@@ -1,5 +1,5 @@
 #pool
-  %h2= "#{@user.username} Pool"
+  %h1= "#{@user.username} Pool"
 
   %form.new-entry{:action => url('/linkings'), :method => 'post'}
     New entry:
@@ -7,11 +7,4 @@
     %input{:name => 'summary', :placeholder => 'Title'}
     %input{:type => 'submit'}
 
-  - @user.linkings.each do |l|
-    .entry
-      %span.emit
-        %a{:href => '#'} emit
-
-      %a.title{:href => '#'}= l.summary
-
-      %span.when= l.created_at.ago_in_words
+  != haml :linkings, :locals => { :linkings => @user.linkings }
