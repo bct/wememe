@@ -18,32 +18,27 @@ $accent-colour: #cdc;
 $button-foreground-colour: #e8f0de;
 $button-border-colour: #538312;
 
-$button-colour-1: #7db72f;
-$button-colour-2: #4e7d0e;
+$button-colour:        #7db72f;
+$button-focus-colour:  #6b9d28;
+$button-active-colour: #4e7d0e;
 
-$button-focus-colour-1: #6b9d28;
-$button-focus-colour-2: #436b0c;
-
-$button-active-colour-1: #4e7d0e;
-$button-active-colour-2: #7db72f;
-
-@mixin cool-button-gradient {
+@mixin cool-button-plain {
 	color: $button-foreground-colour;
 	border: solid 1px $button-border-colour;
 
-  @include background(linear-gradient($button-colour-1, $button-colour-2));
+  @include background($button-colour);
 
   &:hover, &:focus {
-    @include background(linear-gradient($button-focus-colour-1, $button-focus-colour-2));
+    @include background($button-focus-colour);
   }
 
   &:active {
-    @include background(linear-gradient($button-active-colour-1, $button-active-colour-2));
+    @include background($button-active-colour);
   }
 }
 
 @mixin cool-button {
-  @include cool-button-gradient;
+  @include cool-button-plain;
 
 	@include text-shadow(0 1px 1px rgba(0,0,0,.3));
   @include border-radius(.5em, .5em);
