@@ -74,6 +74,8 @@ header {
   background: $accent-colour;
   padding-left: 1em;
 
+  @include border-radius(0 0 2em 2em);
+
   h1 {
     @include column(18);
     font-weight: bold;
