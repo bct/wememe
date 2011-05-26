@@ -8,6 +8,10 @@ class Rememe
 
   use Rack::Flash
 
+  configure :production do
+    set :db, ENV['DATABASE_URL']
+  end
+
   configure :development do
     set :db, "sqlite3:///#{Dir.pwd}/db/wememe.db"
   end
