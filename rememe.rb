@@ -5,16 +5,12 @@ Bundler.require
 
 require 'json'
 
+class Rememe < Sinatra::Base; end
+
 require_relative 'models'
+require_relative 'config/config'
 
-class Rememe < Sinatra::Base
-  # this is a workaround for an issue with sinatra and shotgun
-  # <http://groups.google.com/group/sinatrarb/browse_thread/thread/a54152a32417c90b/16c06a6e43f643ec>
-  set :session_secret, 'crazy about conan'
-
-  enable :sessions
-  use Rack::Flash
-
+class Rememe
   helpers do
     def signed_in?
       current_user
@@ -36,15 +32,6 @@ class Rememe < Sinatra::Base
     def load_user_from_session
       User.get(session[:user])
     end
-  end
-
-  configure do
-    set :haml, :escape_html => true
-    set :db, "sqlite3:///#{Dir.pwd}/db/wememe.db"
-  end
-
-  configure :test do
-    set :db, 'sqlite3::memory:'
   end
 
   get '/' do
