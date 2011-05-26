@@ -2,9 +2,10 @@ class User
   include DataMapper::Resource
 
   property :id,         Serial
-  property :username,   String, :required => true
+  property :username,   String, :length => 16, :required => true
 
-  property :password_hash, String, :required => true
+  # I'm not sure what the actual length of this should be.
+  property :password_hash, String, :length => 255, :required => true
 
   has n, :linkings, :child_key => [ :creator_id ]
 
@@ -27,7 +28,7 @@ class Url
   include DataMapper::Resource
 
   property :id,         Serial
-  property :url,        String, :required => true
+  property :url,        String, :length => 255, :required => true
 
   has n, :linkings
 end
@@ -36,7 +37,7 @@ class Linking
   include DataMapper::Resource
 
   property :id,         Serial
-  property :summary,    String,   :required => true
+  property :summary,    String,   :length => 255, :required => true
   property :created_at, Time,     :required => true
 
   belongs_to :url,                :required => true
@@ -53,7 +54,7 @@ class Pool
   include DataMapper::Resource
 
   property :id,   Serial
-  property :name, String, :required => true
+  property :name, String, :length => 64, :required => true
 
   has n, :linkings, :through => Resource
 end
