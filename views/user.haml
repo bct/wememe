@@ -1,10 +1,11 @@
 #pool
   %h1= "#{@user.username} Pool"
 
-  %form.new-entry{:action => url('/linkings'), :method => 'post'}
-    New entry:
-    %input{:name => 'url',     :placeholder => 'URL'}
-    %input{:name => 'summary', :placeholder => 'Title'}
-    %input{:type => 'submit'}
+  - if signed_in? and current_user == @user
+    %form.new-entry{:action => url('/linkings'), :method => 'post'}
+      New entry:
+      %input{:name => 'url',     :placeholder => 'URL'}
+      %input{:name => 'summary', :placeholder => 'Title'}
+      %input{:type => 'submit'}
 
   != haml :linkings, :locals => { :linkings => @user.linkings }
